@@ -1,0 +1,46 @@
+/* iqiyi/index.wxss */
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper.carousel-wrapper {
+  height: 600rpx;
+}
+
+.carousel-item image {
+  width: 100%;
+}
+
+swiper.card-wrapper {
+  position: fixed;
+  top: 400rpx;
+  width: 100%;
+  height: 302rpx;
+  background-color: transparent;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-left: 10%;
+  width: 80%;
+  height: 300rpx;
+  border-radius: 6rpx;
+  background-color: #fff;
+  box-shadow: 2rpx 2rpx 2rpx rgba(0, 0, 0, 0.1);
+}
+
+.card-cover {
+  width: 200rpx;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.card-content{
+  flex-grow: 1;
+  margin-left: 6%;
+}

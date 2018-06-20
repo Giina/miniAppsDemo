@@ -1,0 +1,18 @@
+<!--iqiyi/index.wxml-->
+<view class="container">
+  <swiper class="carousel-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" bindchange="swiperChange" current="{{currentIndex}}">
+    <swiper-item class="carousel-item" wx:for="{{details}}">
+      <image class="bg" src="{{item.images.large}}" mode="widthFix" />
+    </swiper-item>
+  </swiper>
+  <swiper class="card-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange" current="{{currentIndex}}">
+    <swiper-item class="card-item" wx:for="{{details}}">
+      <view class="card">
+        <image class="card-cover" src="{{item.images.small}}" mode="aspectFill"></image>
+        <view class="card-content">
+          {{item.title}}{{currentIndex}}
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

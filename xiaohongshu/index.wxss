@@ -1,0 +1,156 @@
+/* xiaohongshu/index.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #f5f8fa;
+}
+
+.search {
+  background: #fff;
+}
+
+.searchBar {
+  margin: 20rpx 30rpx;
+  border-radius: 30px;
+  border: 1px solid #f5f5f5;
+  background: #f5f5f5;
+}
+
+.weui-icon-search {
+  margin-left: 15rpx;
+  float: left;
+}
+
+.navBar {
+  height: 60rpx;
+  background: #fff;
+  border-top: 1px solid #fafafa;
+}
+
+.navBar-box {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 60rpx;
+}
+
+.cate-list {
+  display: inline;
+  margin: 15rpx 22rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #9d9d9d;
+}
+
+.navBar-box .cate-list.on {
+  color: #000;
+  font-weight: bold;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.category {
+  height: auto;
+  overflow: hidden;
+}
+
+.category-title {
+  height: auto;
+  line-height: 72rpx;
+  font-size: 35rpx;
+  text-align: center;
+  margin: 20rpx;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.cate-box {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
+.note {
+  margin-top: 2%;
+  width: 352.5rpx;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2rpx 2rpx 2rpx rgba(0, 0, 0, 0.1);
+}
+
+.note-info span {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 10rpx;
+  text-align: center;
+}
+
+.home-note-img {
+  height: auto;
+}
+
+.home-note-img image {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+
+.cate-box.Music .home-note-img image{
+  height: 340rpx;
+}
+
+.note-handle, .writer {
+  display: flex;
+  flex-direction: row;
+}
+
+.name {
+  margin-left: 10px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 12px;
+}
+
+.writer image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.like {
+  margin-left: 15px;
+  display: flex;
+}
+
+.like image {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+.like span {
+  font-size: 12px;
+  color: #9f9f9f;
+  margin: auto;
+}

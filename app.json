@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "iqiyi/index",
+    "index/index",
+    "xiaohongshu/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

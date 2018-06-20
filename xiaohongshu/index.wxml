@@ -1,0 +1,38 @@
+<!--xiaohongshu/index.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <!-- <view class="search">
+    <view class="searchBar">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <input  class="input" placeholder="大家都在搜" bindtap="entrySearch" disabled />
+    </view>
+  </view>  -->
+  <!-- 导航栏 -->
+  <view class="navBar">
+    <scroll-view class="navBar-box" scroll-x="true" style="white-space: nowrap; display:flex ">
+      <view class="cate-list {{curIndex==index?'on':''}}" wx:for="{{categories}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCategory">{{item.name}}</view>
+      <view class="cate-list {{curIndex==index?'on':''}}" wx:for="{{categories}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCategory">{{item.name}}</view>
+      <view class="cate-list {{curIndex==index?'on':''}}" wx:for="{{categories}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCategory">{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <!-- 文章列表 -->
+  <swiper class="content" current="{{toView}}" bindchange="switchCategory">
+    <swiper-item class="category" wx:for="{{details}}" wx:key="{{item.id}}">
+      <scroll-view class="cate-box {{categories[index].name}}" id="{{item.id}}" scroll-y>
+        <!-- 文章封面内容 -->
+        <view class="note-container">
+          <view class="note" wx:for="{{item.list}}" wx:for-item="notes" wx:key="{{index}}">
+            <view class="note-info">
+              <navigator url="../index/note-info/note-info">
+                <view class="home-note-img">
+                  <image src="{{notes.image||notes.images.medium}}" mode="heightFix" lazy-load="true" />
+                </view>
+                <span>{{notes.title}}</span>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
