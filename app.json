@@ -1,7 +1,7 @@
 {
   "pages": [
-    "iqiyi/index",
     "index/index",
+    "iqiyi/index",
     "xiaohongshu/index"
   ],
   "window": {

@@ -13,10 +13,10 @@ Page({
     currentIndex: 0,
     indicatorDots: false,
     autoplay: false,
-    circular:true,
+    circular: true,
     interval: 5000,
     duration: 1000,
-    details: {}
+    details: []
   },
   swiperChange(e) {
     const vm = this
@@ -24,20 +24,51 @@ Page({
       currentIndex: e.detail.current || 0
     })
   },
+  preview({
+    currentTarget: {
+      dataset: {
+        index
+      }
+    }
+  }) {
+    const vm = this
+    let urls = []
+    if (vm.data.details[index].has_poster) {
+      urls.push('https://img.reelgood.com/content/movie/' + vm.data.details[index].id + '/poster-780.jpg')
+    }
+    if (vm.data.details[index].has_backdrop) {
+      urls.push('https://img.reelgood.com/content/movie/' + vm.data.details[index].id + '/backdrop-1920.jpg')
+    }
+    if (urls.length > 0) {
+      wx.previewImage({
+        urls
+      })
+    } else {
+      wx.showToast({
+        title: '暂无图片可以预览',
+      })
+    }
+  },
+  setClip({
+    currentTarget: {
+      dataset: {
+        index
+      }
+    }
+  }) {
+    const vm=this
+    wx.setClipboardData({
+      data: vm.data.details[index].slug.replace('-',' ')
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     const vm = this
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5b29bc91353194793efa8677/example/listdata',
-      success(res) {
-        vm.setData({
-          'details': res.data.data[0].list
-        })
-      }
-    })
-
+    fetchData(vm)
+    fetchData(vm)
+    fetchData(vm)
   },
 
   /**
@@ -89,3 +120,28 @@ Page({
 
   }
 })
+
+function fetchData(vm) {
+  wx.request({
+    url: 'https://api.reelgood.com/v1/roulette/netflix?nocache=true^&content_kind=movie&availability=onAnySource',
+    success({
+      data: {
+        id
+      }
+    }) {
+      wx.request({
+        url: `https://api.reelgood.com/v1/movie/${id}?availability=onAnySource&interaction=true`,
+        success({
+          data
+        }) {
+          console.log(data)
+          let arr = vm.data.details
+          arr.push(data)
+          vm.setData({
+            details: arr
+          })
+        }
+      })
+    }
+  })
+}

@@ -1,16 +1,17 @@
 <!--iqiyi/index.wxml-->
 <view class="container">
   <swiper class="carousel-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" bindchange="swiperChange" current="{{currentIndex}}">
-    <swiper-item class="carousel-item" wx:for="{{details}}">
-      <image class="bg" src="{{item.images.large}}" mode="widthFix" />
+    <swiper-item class="carousel-item" wx:for="{{details}}" wx:key="{{index}}" bindtap="preview" data-index="{{index}}">
+      <image class="bg" src="{{'https://img.reelgood.com/content/movie/'+item.id+'/poster-780.jpg'}}" mode="aspectFill"/>
+      <view class="bg-mask"></view>
     </swiper-item>
   </swiper>
   <swiper class="card-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange" current="{{currentIndex}}">
-    <swiper-item class="card-item" wx:for="{{details}}">
-      <view class="card">
-        <image class="card-cover" src="{{item.images.small}}" mode="aspectFill"></image>
+    <swiper-item class="card-item" wx:for="{{details}}" wx:key="{{index}}">
+      <view class="card" bindlongtap="setClip" data-index="{{index}}">
         <view class="card-content">
-          {{item.title}}{{currentIndex}}
+          <view class="text">【{{item.title}}】{{item.overview}}</view>
+          <view class="lang">{{item.language}}</view>
         </view>
       </view>
     </swiper-item>
